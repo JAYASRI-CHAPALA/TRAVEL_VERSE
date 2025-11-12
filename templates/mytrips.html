@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+       <strong></strong>{{message}}
+       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor%}
+
+  <table class="table table-striped table-hover shadow p-3 mb-5 bg-body rounded">
+    <thead>
+        <tr>
+            <th>Trip ID</th>
+            <th>Country</th>
+            <th>Place</th>
+            <th>Date of Trip</th>
+            <th>Date of Booking</th>
+            <th>Booking Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for trip in trips %}
+        <tr>
+            <td>{{ trip.trip_id }}</td>
+            <td>{{ trip.country }}</td>
+            <td>{{ trip.place }}</td>
+            <td>{{ trip.date_of_trip }}</td>
+            <td>{{ trip.date_of_booking }}</td>
+
+            <td>{% if trip.date_of_trip > current_date %}
+                <a href="{{ url_for('cancel_trip', trip_id=trip.trip_id) }}" class="main-btn"> Cancel Trip </a>
+                {% else %}
+                <a href="" class="main-btn  disabled">Success</a>
+                {% endif %}
+            </td>
+                
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+{% endblock content %}

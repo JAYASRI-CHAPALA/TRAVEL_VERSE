@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if name %}
+<h1 class="shadow p-3 mb-5 bg-body rounded">Hello {{name|title}} !!</h1>
+    <table class="table table-striped table-hover shadow p-3 mb-5 bg-body rounded">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        {% for user in our_users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td><a href="{{url_for('update',id=user.id)}}">{{user.name}}</a></td>
+            <td>{{ user.username }}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.favorite_color}}
+            <a href="{{url_for('delete',id=user.id)}}">Delete</a>
+        </td>
+          </tr>
+          {% endfor %}
+      </table>
+      {% endif %}
+
+      {% endblock content %}

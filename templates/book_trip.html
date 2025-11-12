@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form action="{{ url_for('book_trip', country=country, place=place) }}" method="post">
+                {{ form.hidden_tag() }}                
+                {{ form.country.label(class='form-label')}} 
+                {{ form.country(class='form-control')}} <br>
+                {{ form.place.label(class='form-label')}} 
+                {{ form.place(class='form-control')}} <br>
+                {{ form.date_of_trip.label(class='form-label')}} 
+                {{ form.date_of_trip(class='form-control')}} <br>
+                {{ form.guide.label(class='form-label')}}
+                {{ form.guide()}} <br>
+                {{ form.guide_lang.label(class='form-label')}}
+                {{ form.guide_lang(class='form-control')}} <br>
+                {{ form.agree_to_terms() }}
+                {{ form.agree_to_terms.label(class='form-label') }}
+                {{ form.submit()}}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

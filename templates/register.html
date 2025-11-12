@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="container mt-4 shadow p-3 mb-5 bg-body rounded">
+   <h1>Register User</h1>
+   {% for message in get_flashed_messages() %}
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong></strong>{{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   </div>
+   {% endfor%}
+
+
+   <form method="POST">
+      {{form.hidden_tag()}}
+
+      {{form.name.label(class="form-label")}}
+      {{form.name(class="form-control")}}
+      {{form.username.label(class="form-label")}}
+      {{form.username(class="form-control")}}
+      {{form.email.label(class="form-label")}}
+      {{form.email(class="form-control")}}
+      {{form.password.label(class="form-label")}}
+      {{form.password(class="form-control")}}
+      {{form.confirm_password.label(class="form-label")}}
+      {{form.confirm_password(class="form-control")}}
+      {{form.agree_to_terms()}}
+      {{form.agree_to_terms.label(class="form-label")}}
+      <br />
+      {{form.submit(class="btn btn-secondary")}}
+   </form>
+
+
+</div>
+<div class="container">
+<table class="table table-striped table-hover shadow p-3 mb-5 bg-body rounded">
+   {% for user in our_users %}
+   <tr>
+       <td>{{ user.id }}</td>
+       <td><a href="{{url_for('update',id=user.id)}}">{{user.name}}</a></td>
+       <td>{{ user.username }}</td>
+       <td>{{user.email}}</td>
+       <!-- <td>{{user.password_hash}}</td> -->
+         <td><a href="{{url_for('delete',id=user.id)}}">Delete</a> | <a href="{{url_for('update',id=user.id)}}">Update</a></td>
+     </tr>
+     {% endfor %}
+ </table>
+
+</div>
+{% endblock content %}

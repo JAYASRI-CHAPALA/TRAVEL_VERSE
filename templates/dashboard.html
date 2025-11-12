@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    {% if current_user %}
+    <h6>Name : </h6> <p class="subtitle">{{current_user.name}}</p><br>
+    <h6>email : </h6> <p class="subtitle"> {{current_user.email}}</p><br>
+    <!-- <h6>pass : </h6> <p class="subtitle"> {{current_user.password_hash}}</p><br> -->
+    <h6>username : </h6> <p class="subtitle"> {{ current_user.username}}</p><br>
+    <br>
+    <a href="{{url_for('logout')}}" class="main-btn">logout</a>
+</div>
+{% endif %}
+{% endblock content %}

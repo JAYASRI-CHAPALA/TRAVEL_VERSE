@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/home.css') }}">
+
+    <title>TravelVerse</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">Travelverse</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('register')}}">register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('mytrips')}}">Mytrips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('dashboard')}}">Account</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- navbar end -->
+
+    <!-- main section -->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- main section end -->
+
+    <!-- footer  section-->
+    <footer class=" pt-2 mt-5">
+        <div class="container text-center text-md-left pt-5">
+            <div class="row text-center">
+                <div class="col-md-3 col-lg-3">
+                    <div class="col-md-12 col-lg-12">
+                        <img src="{{ url_for('static', filename='images/travelverse_logo.svg')}}" alt=""
+                            class="footer-img">
+                        <h4>TravelVerse</h4>
+                        <p class="subtitle">Gateway to Unforgettable Adventures</p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-5">
+                    <h6>Contact Us</h6>
+                    <ul class="list-inline">
+                        <li><a href=""><i class="fas fa-phone-alt"></i> 91+ 9676XXXX45</a></li>
+                        <li><a href="mailto:contact@travelverse.com"><i
+                                    class="fas fa-envelope"></i>contact@travelverse.com</a></li>
+                        <li><a href="https://maps.app.goo.gl/7kYhFThQomm2Kx3P6" target="_blank"><i
+                                    class="fas fa-map-marker-alt"></i>
+                                RGUKT Ongole,Pernamitta,ONGOLE pincode-523225</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6>Follow Us</h6>
+                    <ul
+                        class="list-unstyled d-flex justify-content-center justify-content-md-end justify-content-lg-center social-icon m-3">
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center mt-3">
+                <div class="col-md-3 col-lg-3">
+                    <h6>Navigation Links</h6>
+                    <ul class="list-inline">
+                        <li>About Us</li>
+                        <li>Services</li>
+                        <li>Destinations</li>
+                        <li>Blog</li>
+                        <li>FAQs</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <h6>Customer Support</h6>
+                    <ul class="list-inline">
+                        <li>Help Center </li>
+                        <li>Live Chat </li>
+                        <li>Customer Service Hours </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-lg-3 ">
+                    <h6>Legal Links</h6>
+                    <ul class="list-inline">
+                        <li>Terms of Service</li>
+                        <li>Privacy Policy</li>
+                        <li>Cookie Policy
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <h6>Additional Resources</h6>
+                    <ul class="list-inline">
+                        <li>Travel guides</li>
+                        <li>Destination reviews</li>
+                        <li>Testimonials</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <p>Copyrights &copy 2024 <br>All Rights Reserved by <span>TravelVerse</span></p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

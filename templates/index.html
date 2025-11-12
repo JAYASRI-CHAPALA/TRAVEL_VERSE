@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid home_wrapper d-flex align-items-center  justify-content-center ">
+    <div class="row ">
+        <div class="col-md-12">
+            <h5>Welcome to Magic World</h5>
+            <h2>Visit <span class="changecontent"></span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, obcaecati.</p>
+            <a href="#find" class="main-btn">Travel Now</a>       
+         </div>
+    </div>
+</div>
+
+<!-- search bar -->
+<section class="search-wrapper">
+    <div class="container mt-5  search-bar">
+        <div class="row mb-5">
+            <div class="col-md-5 col-lg-5">
+                <p>Suggested Trips</p>
+            </div>
+            <div class="col-md-5 col-lg-5 search-ingine d-flex">
+                <input type="text" name="" placeholder="Search country...." id="find" onkeyup="search()">
+            </div>
+        </div>
+        <div class="row mb-5 d-flex justify-content-md-end">
+            {% for place in places %}
+            <div class="col-md-3 col-lg-3 place mb-5">
+                <img src="{{ url_for('static',filename='images/'+place['country_name']+'.png')}}" alt="{{place['country_name'] | capitalize }}">
+                <h4>{{ place['country_name'] | title }}</h4>
+                <p>{{ place['description'] }}</p>
+                <h6>Budget: {{ place['expected_budget_in_INR']}}Rs<del> {{place['actual_budget_in_INR']}} Rs</del></h6>
+                <a href="{{url_for('country_wise' , country=place['country_name'])}}" class="main-btn">See Places </a>
+                
+            </div>
+        {% endfor %}
+            
+        </div>
+    </div>
+</section>
+
+<!-- search bar end -->
+
+{% endblock content %}

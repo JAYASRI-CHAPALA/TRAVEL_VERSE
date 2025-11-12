@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- search bar -->
+<section class="search-wrapper">
+    <div class="container mt-5  search-bar">
+        <div class="row mb-5">
+            <div class="col-md-5 col-lg-5">
+                <p>Suggested Trips</p>
+            </div>
+            <div class="col-md-5 col-lg-5 search-ingine d-flex">
+                <input type="text" name="" placeholder="Search country...." id="find" onkeyup="search()">
+            </div>
+        </div>
+        <div class="row mb-5 d-flex justify-content-md-end">
+            {% for place in places %}
+            <div class="col-md-4  place mb-5">
+                <img src="{{ url_for('static',filename='images/'+place['country_name']+'.png')}}" alt="{{place['country_name'] | capitalize }}">
+                <img src="{{ image_url }}" alt="{{ place['country_name'] }} Image" />
+                <h4>{{ place['place_name'] | title }}</h4>
+                <p>{{ place['description_of_tourism_place'] }}</p>
+                <h6>Budget: {{ place['expected_budget_in_INR']}}Rs<del> {{place['actual_budget_in_INR']}} Rs</del></h6>
+                <a href="{{url_for('place',country = place['country_name'], place = place['place_name'])}}" class="main-btn">Know More</a>
+                <a href="{{url_for('place',country = place['country_name'], place = place['place_name'])}}" class="main-btn">Book Trip</a>     
+            </div>
+        {% endfor %} 
+        </div>
+    </div>
+</section>
+<!-- search bar end -->
+
+{% endblock content %}
